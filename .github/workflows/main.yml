@@ -1,29 +1,21 @@
-name: Test Run Node Script Daily
+name: Manual Trigger
 
 on:
-  schedule:
-    # 使用 cron 表达式设置时间，例如每天早上 10 点运行
-    - cron: '0 10 * * *'
+  # 手动触发事件
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test scenario tags'
 
 jobs:
-  run-script:
+  printInputs:
     runs-on: ubuntu-latest
-
     steps:
-      # 检出代码
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      # 设置 Node.js 环境
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'  # 使用你项目的 Node.js 版本
-
-      # 安装依赖
-      - name: Install dependencies
-        run: npm install
-
-      # 运行你的脚本
-      - name: Run your Node script
-        run: node run.js  # 替换为你的脚本路径
+      - run: |
+          echo "Log level: ${{ github.event.inputs.logLevel }}"
+          echo "Tags: ${{ github.event.inputs.tags }}"
+          echo "Inputs: ${{ toJson(github.event.inputs) }}"
