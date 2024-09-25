@@ -1,4 +1,4 @@
-name: Run Node Script Daily
+name: Test Run Node Script Daily
 
 on:
   schedule:
