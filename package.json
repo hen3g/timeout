@@ -1,0 +1,23 @@
+{
+  "name": "timeout",
+  "version": "1.0.0",
+  "description": "",
+  "main": "run.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hen3g/timeout.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hen3g/timeout/issues"
+  },
+  "homepage": "https://github.com/hen3g/timeout#readme",
+  "dependencies": {
+    "date-holidays": "^3.23.12",
+    "node-fetch": "^2.7.0"
+  }
+}
